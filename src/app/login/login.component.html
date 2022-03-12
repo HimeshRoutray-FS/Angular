@@ -1,0 +1,17 @@
+<div *ngIf="loading" class="loading-indicator">
+  <mat-spinner></mat-spinner>
+</div>
+<form class="login-form">
+  <mat-form-field class="login-full-width">
+    <input matInput placeholder="Username" name="user" type="text" [(ngModel)]="username">
+  </mat-form-field>
+
+  <mat-form-field class="login-full-width">
+    <input matInput placeholder="Password" name="pass" type="password" [(ngModel)]="password">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" (click)="dologin()">Login</button>
+
+  <h4 *ngIf="error">{{error}}</h4>
+</form>
+

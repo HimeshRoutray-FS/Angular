@@ -1,0 +1,27 @@
+<div *ngIf="loading" class="loading-indicator">
+  <mat-spinner></mat-spinner>
+</div>
+<form class="create-transaction-form" (ngSubmit)="createDealerObj()">
+  <mat-form-field class="create-transaction-full-width">
+      <input matInput [matDatepicker]="picker" [(ngModel)]="dates" name="dts" placeholder="Choose a date" disabled>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker touchUi #picker disabled="false"></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field class="create-transaction-full-width">
+    <input matInput placeholder="Credit" name="cred" type="text" [(ngModel)]="credit">
+  </mat-form-field>
+
+  <mat-form-field class="create-transaction-full-width">
+    <input matInput placeholder="Debit" name="deb" type="text" [(ngModel)]="debit">
+  </mat-form-field>
+
+  <mat-form-field class="create-transaction-full-width">
+    <input matInput placeholder="Description" name="desc" type="text" [(ngModel)]="description">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Save</button>
+
+  <h4 *ngIf="success">{{success}}</h4>
+  <h4 *ngIf="error">{{error}}</h4>
+</form>

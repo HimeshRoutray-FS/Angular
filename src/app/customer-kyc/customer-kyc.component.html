@@ -1,0 +1,70 @@
+<div *ngIf="loading" class="loading-indicator">
+  <mat-spinner></mat-spinner>
+</div>
+<form class="create-customer-form" (ngSubmit)="createCustomerObj()">
+
+  <mat-form-field class="create-customer-full-width">
+    <input matInput [matDatepicker]="picker1" [(ngModel)]="dates" name="dts" placeholder="Choose a date" disabled>
+    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+    <mat-datepicker touchUi #picker1 disabled="false"></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field class="create-customer-full-width">
+    <input matInput placeholder="Customer Name" name="customer" type="text" [(ngModel)]="customerName">
+  </mat-form-field>
+
+  <mat-form-field class="create-customer-full-width">
+    <mat-label>Product Name</mat-label>
+    <mat-select [(value)]="productName">
+    <mat-option>None</mat-option>
+    <mat-option value="AIS 140">AIS 140</mat-option>
+    <mat-option value="NORMAL GPS">NORMAL GPS</mat-option>
+    <mat-option value="MINING GPS">MINING GPS FASTRACKZ</mat-option>
+    <mat-option value="MINING GPS">MINING GPS ATLANTA</mat-option>
+    <mat-option value="MINING GPS">MINING GPS MAPMYINDIA</mat-option>
+    <mat-option value="REFLECTIVE TAPE">REFLECTIVE TAPE</mat-option>
+    <mat-option value="SPEED GOVERNER">SPEED GOVERNER</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="create-customer-full-width">
+    <input matInput [matDatepicker]="picker2" [(ngModel)]="activationDate" name="actdts" placeholder="Choose activation date" disabled>
+    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+    <mat-datepicker touchUi #picker2 disabled="false"></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field class="create-customer-full-width">
+    <input matInput placeholder="Vehicle Number" name="vehcle" type="text" [(ngModel)]="vehicle">
+  </mat-form-field>
+
+  <mat-form-field class="create-customer-full-width">
+    <input matInput placeholder="Mobile" name="moile" type="text" [(ngModel)]="mobile">
+  </mat-form-field>
+
+  <mat-form-field class="create-customer-full-width">
+    <input matInput placeholder="IMEI" name="imi" type="text" [(ngModel)]="imei">
+  </mat-form-field>
+
+  <mat-form-field class="create-customer-full-width">
+    <mat-label>ID Type</mat-label>
+    <mat-select [(value)]="idType">
+    <mat-option>None</mat-option>
+    <mat-option value="Aadhar">Aadhar</mat-option>
+    <mat-option value="DL">DL</mat-option>
+    <mat-option value="Voter ID">Voter ID</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="create-customer-full-width">
+    <input matInput placeholder="ID Number" name="idnmbr" type="text" [(ngModel)]="idNumber">
+  </mat-form-field>
+
+  <p>Choose RC image to upload</p>
+  <input #rcPhoto type="file" name="avatar" (change)="onFileSelect($event)"/>
+  <br>
+
+  <button mat-raised-button color="primary" type="submit" class="savebutton">Save</button>
+
+  <h4 *ngIf="success">{{success}}</h4>
+  <h4 *ngIf="error">{{error}}</h4>
+</form>

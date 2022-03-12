@@ -1,0 +1,21 @@
+<div *ngIf="loading" class="loading-indicator">
+  <mat-spinner></mat-spinner>
+</div>
+<form class="create-profile-form" (ngSubmit)="createProfileObj()">
+  <mat-form-field class="create-profile-full-width">
+    <input matInput placeholder="Username" name="usrnm" type="text" [(ngModel)]="username">
+  </mat-form-field>
+
+  <mat-form-field class="create-profile-full-width">
+    <input matInput placeholder="Password" name="pswrd" type="text" [(ngModel)]="password">
+  </mat-form-field>
+
+  <mat-form-field class="create-profile-full-width">
+    <input matInput placeholder="Company Name" name="cmpnynm" type="test" [(ngModel)]="companyname">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Save</button>
+
+  <h4 *ngIf="success">{{success}}</h4>
+  <h4 *ngIf="error">{{error}}</h4>
+</form>

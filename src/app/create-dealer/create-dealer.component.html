@@ -1,0 +1,41 @@
+<div *ngIf="loading" class="loading-indicator">
+  <mat-spinner></mat-spinner>
+</div>
+<form class="create-dealer-form" (ngSubmit)="createDealerObj()">
+  <mat-form-field class="create-dealer-full-width">
+    <input matInput placeholder="Company Name" name="company" type="text" [(ngModel)]="companyname">
+  </mat-form-field>
+
+  <mat-form-field class="create-dealer-full-width">
+    <input matInput placeholder="Dealer Name" name="dealer" type="text" [(ngModel)]="dealername">
+  </mat-form-field>
+
+  <mat-form-field class="create-dealer-full-width">
+    <input matInput placeholder="District" name="dist" type="text" [(ngModel)]="district">
+  </mat-form-field>
+
+  <mat-form-field class="create-dealer-full-width">
+    <textarea matInput placeholder="Address" name="add" type="test" [(ngModel)]="address"></textarea>
+  </mat-form-field>
+
+  <mat-form-field class="create-dealer-full-width">
+    <input matInput placeholder="Email" name="eml" type="text" [(ngModel)]="email">
+  </mat-form-field>
+
+  <mat-form-field class="create-dealer-full-width">
+    <input matInput placeholder="Mobile" name="mob" type="text" [(ngModel)]="mobile">
+  </mat-form-field>
+
+  <mat-form-field class="create-dealer-full-width">
+    <input matInput placeholder="PAN" name= "pn" type="text" [(ngModel)]="pan">
+  </mat-form-field>
+
+  <mat-form-field class="create-dealer-full-width">
+    <input matInput placeholder="GST" name="gstn" type="text" [(ngModel)]="gst">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Save</button>
+
+  <h4 *ngIf="success">{{success}}</h4>
+  <h4 *ngIf="error">{{error}}</h4>
+</form>

@@ -1,0 +1,43 @@
+<div class="get-all-users">
+  <h4 *ngIf="error">{{error}}</h4>
+  <div *ngIf="loading" class="loading-indicator">
+    <mat-spinner></mat-spinner>
+  </div>
+  <mat-form-field *ngIf="!error">
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Enter any column value to filter">
+  </mat-form-field>
+
+  <div class="users-table-container mat-elevation-z8" *ngIf="!error">
+    <table mat-table [dataSource]="dataSource">
+
+      <ng-container matColumnDef="username">
+        <th mat-header-cell *matHeaderCellDef> Username </th>
+        <td mat-cell *matCellDef="let users"> {{users.username}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="password">
+        <th mat-header-cell *matHeaderCellDef> Password </th>
+        <td mat-cell *matCellDef="let users"> {{users.password}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="role">
+        <th mat-header-cell *matHeaderCellDef> Role </th>
+        <td mat-cell *matCellDef="let users"> {{users.role}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="companyname">
+        <th mat-header-cell *matHeaderCellDef> Company Name </th>
+        <td mat-cell *matCellDef="let users"> {{users.companyname}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+
+    <mat-paginator [length]="100"
+                  [pageSize]="5"
+                  [pageSizeOptions]="[5, 10, 25, 100]">
+    </mat-paginator>
+  </div>
+</div>

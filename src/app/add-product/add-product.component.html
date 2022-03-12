@@ -1,0 +1,37 @@
+<div *ngIf="loading" class="loading-indicator">
+  <mat-spinner></mat-spinner>
+</div>
+<form class="create-product-form" (ngSubmit)="createDealerObj()">
+ <mat-form-field class="create-product-full-width">
+    <mat-label>Product Name</mat-label>
+    <mat-select [(value)]="productname">
+    <mat-option>None</mat-option>
+    <mat-option value="AIS 140">AIS 140</mat-option>
+    <mat-option value="NORMAL GPS">NORMAL GPS</mat-option>
+    <mat-option value="MINING GPS">MINING GPS FASTRACKZ</mat-option>
+    <mat-option value="MINING GPS">MINING GPS ATLANTA</mat-option>
+    <mat-option value="MINING GPS">MINING GPS MAPMYINDIA</mat-option>
+    <mat-option value="REFLECTIVE TAPE">REFLECTIVE TAPE</mat-option>
+    <mat-option value="SPEED GOVERNER">SPEED GOVERNER</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="create-product-full-width">
+    <input matInput [matDatepicker]="picker" [(ngModel)]="dates" name="dts" placeholder="Choose a date" disabled>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker touchUi #picker disabled="false"></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field class="create-product-full-width">
+    <input matInput placeholder="Quantity" name="qty" type="text" [(ngModel)]="quantity">
+  </mat-form-field>
+
+  <mat-form-field class="create-product-full-width">
+    <input matInput placeholder="Product Serial Number From to To" name="productslno" type="text" [(ngModel)]="productslnofromto">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Save</button>
+
+  <h4 *ngIf="success">{{success}}</h4>
+  <h4 *ngIf="error">{{error}}</h4>
+</form>

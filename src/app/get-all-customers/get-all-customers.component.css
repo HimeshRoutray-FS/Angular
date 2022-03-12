@@ -1,0 +1,60 @@
+/* Structure */
+.get-all-customers{
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 1%;
+    padding-bottom: 1%
+  }
+
+  h4{color: red;
+    text-align: center
+  }
+
+  .pdf-button{
+    float: right
+  }
+  
+  table {
+    width: 100%
+  }
+
+  .customers-table-container {
+    height: 352px;
+    overflow: auto;
+  }
+
+  .rc-image{
+    width: 30px;
+    height: 30px
+  }
+  
+  
+  .mat-form-field {
+    font-size: 16px;
+    width: 100%;
+  }
+
+  .loading-indicator {
+    position: fixed;
+    z-index: 999;
+    height: 2em;
+    width: 2em;
+    overflow: show;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  
+  /* Transparent Overlay */
+  .loading-indicator:before {
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+  }

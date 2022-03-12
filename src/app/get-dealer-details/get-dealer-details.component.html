@@ -1,0 +1,25 @@
+<div *ngIf = "dealer">
+  <mat-tab-group mat-align-tabs="center" (selectedTabChange)="tabChanged($event)">
+      <mat-tab label="Add Product"></mat-tab>
+      <mat-tab label="View Products"></mat-tab>
+      <mat-tab label="Add Transaction"></mat-tab>
+      <mat-tab label="View Transactions"></mat-tab>
+  </mat-tab-group>
+<div class="dealerDetails">
+  <h3>Dealer Details</h3>
+  <ul>
+    <li>Company Name: {{dealer.companyname}} </li>
+    <li>Dealer Name: {{dealer.dealername}} </li>
+    <li>District: {{dealer.district}} </li>
+    <li>Address: {{dealer.address}} </li>
+    <li>Email: {{dealer.email}} </li>
+    <li>Mobile: {{dealer.mobile}} </li>
+    <li>PAN: {{dealer.pan}} </li>
+    <li>GST: {{dealer.gst}} </li>
+  </ul>
+</div>
+<app-add-product *ngIf="status==0"></app-add-product>
+<app-view-products *ngIf="status==1"></app-view-products>
+<app-add-transaction *ngIf="status==2"></app-add-transaction>
+<app-view-transactions *ngIf="status==3"></app-view-transactions>
+</div>
